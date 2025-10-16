@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New AI News - Latest AI Developments</title>
+    <style>
+        :root {
+          /* Primitive Color Tokens */
+          --color-white: rgba(255, 255, 255, 1);
+          --color-black: rgba(0, 0, 0, 1);
+          --color-cream-50: rgba(252, 252, 249, 1);
+          --color-cream-100: rgba(255, 255, 253, 1);
+          --color-gray-200: rgba(245, 245, 245, 1);
+          --color-gray-300: rgba(167, 169, 169, 1);
+          --color-gray-400: rgba(119, 124, 124, 1);
+          --color-slate-500: rgba(98, 108, 113, 1);
+          --color-brown-600: rgba(94, 82, 64, 1);
+          --color-charcoal-700: rgba(31, 33, 33, 1);
+          --color-charcoal-800: rgba(38, 40, 40, 1);
+          --color-slate-900: rgba(19, 52, 59, 1);
+          --color-teal-300: rgba(50, 184, 198, 1);
+          --color-teal-400: rgba(45, 166, 178, 1);
+          --color-teal-500: rgba(33, 128, 141, 1);
+          --color-teal-600: rgba(29, 116, 128, 1);
+          --color-teal-700: rgba(26, 104, 115, 1);
+          --color-teal-800: rgba(41, 150, 161, 1);
+          --color-red-400: rgba(255, 84, 89, 1);
+          --color-red-500: rgba(192, 21, 47, 1);
+          --color-orange-400: rgba(230, 129, 97, 1);
+          --color-orange-500: rgba(168, 75, 47, 1);
+        
+          /* RGB versions for opacity control */
+          --color-brown-600-rgb: 94, 82, 64;
+          --color-teal-500-rgb: 33, 128, 141;
+          --color-slate-900-rgb: 19, 52, 59;
+          --color-slate-500-rgb: 98, 108, 113;
+          --color-red-500-rgb: 192, 21, 47;
+          --color-red-400-rgb: 255, 84, 89;
+          --color-orange-500-rgb: 168, 75, 47;
+          --color-orange-400-rgb: 230, 129, 97;
+        
+          /* Background color tokens (Light Mode) */
+          --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
+          --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
+          --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
+          --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
+          --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
+          --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
+          --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
+          --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
+        
+          /* Semantic Color Tokens (Light Mode) */
+          --color-background: var(--color-cream-50);
+          --color-surface: var(--color-cream-100);
+          --color-text: var(--color-slate-900);
+          --color-text-secondary: var(--color-slate-500);
+          --color-primary: var(--color-teal-500);
+          --color-primary-hover: var(--color-teal-600);
+          --color-primary-active: var(--color-teal-700);
+          --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+          --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+          --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+          --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+          --color-btn-primary-text: var(--color-cream-50);
+          --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+          --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+          --color-error: var(--color-red-500);
+          --color-success: var(--color-teal-500);
+          --color-warning: var(--color-orange-500);
+          --color-info: var(--color-slate-500);
+          --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+          --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+        
+          /* Common style patterns */
+          --focus-ring: 0 0 0 3px var(--color-focus-ring);
+          --focus-outline: 2px solid var(--color-primary);
+          --status-bg-opacity: 0.15;
+          --status-border-opacity: 0.25;
+        
+          /* Typography */
+          --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
+            BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+          --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
+            Monaco, Consolas, monospace;
+          --font-size-xs: 11px;
+          --font-size-sm: 12px;
+          --font-size-base: 14px;
+          --font-size-md: 14px;
+          --font-size-lg: 16px;
+          --font-size-xl: 18px;
+          --font-size-2xl: 20px;
+          --font-size-3xl: 24px;
+          --font-size-4xl: 30px;
+          --font-weight-normal: 400;
+          --font-weight-medium: 500;
+          --font-weight-semibold: 550;
+          --font-weight-bold: 600;
+          --line-height-tight: 1.2;
+          --line-height-normal: 1.5;
+          --letter-spacing-tight: -0.01em;
+        
+          /* Spacing */
+          --space-0: 0;
+          --space-1: 1px;
+          --space-2: 2px;
+          --space-4: 4px;
+          --space-6: 6px;
+          --space-8: 8px;
+          --space-10: 10px;
+          --space-12: 12px;
+          --space-16: 16px;
+          --space-20: 20px;
+          --space-24: 24px;
+          --space-32: 32px;
+        
+          /* Border Radius */
+          --radius-sm: 6px;
+          --radius-base: 8px;
+          --radius-md: 10px;
+          --radius-lg: 12px;
+          --radius-full: 9999px;
+        
+          /* Shadows */
+          --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+          --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+          --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
+            0 2px 4px -1px rgba(0, 0, 0, 0.02);
+          --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+            0 4px 6px -2px rgba(0, 0, 0, 0.02);
+          --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+            inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+        
+          /* Animation */
+          --duration-fast: 150ms;
+          --duration-normal: 250ms;
+          --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        
+          /* Layout */
+          --container-sm: 640px;
+          --container-md: 768px;
+          --container-lg: 1024px;
+          --container-xl: 1280px;
+        }
+
+        /* Base styles */
+        html {
+          font-size: var(--font-size-base);
+          font-family: var(--font-family-base);
+          line-height: var(--line-height-normal);
+          color: var(--color-text);
+          background-color: var(--color-background);
+          -webkit-font-smoothing: antialiased;
+          box-sizing: border-box;
+          scroll-behavior: smooth;
+        }
+        
+        body {
+          margin: 0;
+          padding: 0;
+        }
+        
+        *,
+        *::before,
+        *::after {
+          box-sizing: inherit;
+        }
+
+        /* Header styles */
+        .header {
+            background: linear-gradient(135deg, var(--color-slate-900) 0%, var(--color-teal-700) 100%);
+            color: var(--color-white);
+            padding: var(--space-32) 0;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            margin: 0 0 var(--space-8) 0;
+            letter-spacing: var(--letter-spacing-tight);
+        }
+
+        .header p {
+            font-size: var(--font-size-lg);
+            opacity: 0.9;
+            margin: 0;
+        }
+
+        /* Container */
+        .container {
+            max-width: var(--container-lg);
+            margin: 0 auto;
+            padding: 0 var(--space-16);
+        }
+
+        /* Section styles */
+        .section {
+            padding: var(--space-32) 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .section:last-child {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            margin: 0 0 var(--space-24) 0;
+            color: var(--color-text);
+            text-align: center;
+        }
+
+        /* Comparison table styles */
+        .comparison-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-24);
+            margin-top: var(--space-24);
+        }
+
+        .comparison-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-24);
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--duration-normal) var(--ease-standard);
+        }
+
+        .comparison-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .comparison-card h3 {
+            color: var(--color-primary);
+            font-size: var(--font-size-xl);
+            margin: 0 0 var(--space-16) 0;
+        }
+
+        .comparison-card .definition {
+            font-size: var(--font-size-base);
+            margin: 0 0 var(--space-20) 0;
+            color: var(--color-text-secondary);
+        }
+
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 var(--space-20) 0;
+        }
+
+        .features-list li {
+            padding: var(--space-6) 0;
+            padding-left: var(--space-20);
+            position: relative;
+        }
+
+        .features-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .examples {
+            background: var(--color-bg-1);
+            padding: var(--space-12);
+            border-radius: var(--radius-base);
+            margin-top: var(--space-16);
+        }
+
+        .examples h4 {
+            margin: 0 0 var(--space-8) 0;
+            font-size: var(--font-size-sm);
+            color: var(--color-text);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .examples-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .examples-list li {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-4);
+        }
+
+        .example-link {
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            transition: color var(--duration-fast) var(--ease-standard);
+        }
+
+        .example-link:hover {
+            color: var(--color-primary-hover);
+            text-decoration: underline;
+        }
+
+        /* News cards grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-24);
+            margin-top: var(--space-24);
+        }
+
+        .news-card {
+            background: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-24);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--duration-normal) var(--ease-standard);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .news-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .news-card h3 {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            margin: 0 0 var(--space-12) 0;
+            line-height: var(--line-height-tight);
+        }
+
+        .news-card .summary {
+            color: var(--color-text-secondary);
+            margin: 0 0 var(--space-16) 0;
+            line-height: var(--line-height-normal);
+            flex-grow: 1;
+        }
+
+        .news-card .btn {
+            margin-top: auto;
+            align-self: flex-start;
+        }
+
+        .news-card .date {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin: 0 0 var(--space-16) 0;
+        }
+
+        /* Button styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-8) var(--space-16);
+            border-radius: var(--radius-base);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            line-height: 1.5;
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-standard);
+            border: none;
+            text-decoration: none;
+            position: relative;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn:focus-visible {
+            outline: none;
+            box-shadow: var(--focus-ring);
+        }
+
+        .btn--primary {
+            background: var(--color-primary);
+            color: var(--color-btn-primary-text);
+        }
+
+        .btn--primary:hover {
+            background: var(--color-primary-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn--primary:active {
+            background: var(--color-primary-active);
+            transform: translateY(0);
+        }
+
+        .btn::after {
+            content: "→";
+            margin-left: var(--space-6);
+            transition: transform var(--duration-fast) var(--ease-standard);
+        }
+
+        .btn:hover::after {
+            transform: translateX(2px);
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-weight: var(--font-weight-medium);
+            font-size: var(--font-size-sm);
+            transition: color var(--duration-fast) var(--ease-standard);
+        }
+
+        .read-more:hover {
+            color: var(--color-primary-hover);
+        }
+
+        .read-more::after {
+            content: "→";
+            margin-left: var(--space-6);
+            transition: transform var(--duration-fast) var(--ease-standard);
+        }
+
+        .read-more:hover::after {
+            transform: translateX(2px);
+        }
+
+        /* Special section styles */
+        .wows-section {
+            background: var(--color-bg-3);
+        }
+
+        .wows-section .news-card {
+            border-left: 4px solid var(--color-success);
+        }
+
+        .shortfalls-section {
+            background: var(--color-bg-4);
+        }
+
+        .shortfalls-section .news-card {
+            border-left: 4px solid var(--color-error);
+        }
+
+        .productivity-section {
+            background: var(--color-bg-2);
+        }
+
+        .productivity-section .news-card {
+            border-left: 4px solid var(--color-warning);
+        }
+
+        .tax-section {
+            background: var(--color-bg-5);
+        }
+
+        .tax-section .news-card {
+            border-left: 4px solid var(--color-info);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--color-slate-900);
+            color: var(--color-white);
+            padding: var(--space-24) 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+            font-size: var(--font-size-sm);
+            opacity: 0.8;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .comparison-container {
+                grid-template-columns: 1fr;
+                gap: var(--space-16);
+            }
+
+            .news-grid {
+                grid-template-columns: 1fr;
+                gap: var(--space-16);
+            }
+
+            .header h1 {
+                font-size: var(--font-size-3xl);
+            }
+
+            .section-title {
+                font-size: var(--font-size-2xl);
+            }
+
+            .container {
+                padding: 0 var(--space-12);
+            }
+
+            .btn {
+                padding: var(--space-10) var(--space-20);
+                font-size: var(--font-size-base);
+                width: 100%;
+                justify-content: center;
+            }
+
+            .news-card {
+                padding: var(--space-20);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <h1>New AI News</h1>
+            <p>Stay updated with the latest AI developments - October 2025</p>
+        </div>
+    </header>
+
+    <!-- AI Agent vs AI Assistant Comparison -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Understanding the Difference: AI Agents vs AI Assistants</h2>
+            <div class="comparison-container">
+                <div class="comparison-card">
+                    <h3>AI Agents</h3>
+                    <p class="definition">AI agents are autonomous software systems that can perceive their environment, make decisions, and take actions to achieve specific goals with minimal human intervention.</p>
+                    <h4>Key Features:</h4>
+                    <ul class="features-list">
+                        <li>Autonomous operation and decision-making</li>
+                        <li>Goal-oriented behavior and planning</li>
+                        <li>Learning and adaptation capabilities</li>
+                        <li>Multi-step task execution</li>
+                        <li>Integration with external systems and tools</li>
+                    </ul>
+                    <div class="examples">
+                        <h4>Examples</h4>
+                        <ul class="examples-list">
+                            <li><a href="https://www.triplewhale.com/blog/ai-agent-examples" target="_blank" class="example-link">Tesla Autopilot &amp; Full Self-Driving</a></li>
+                            <li><a href="https://smythos.com/managers/ops/autonomous-agents-in-autonomous-vehicles/" target="_blank" class="example-link">Waymo Robotaxis</a></li>
+                            <li><a href="https://bookmap.com/blog/top-trading-algo-bots-automating-your-trading-strategy" target="_blank" class="example-link">AI Trading Bots (3Commas, Hummingbot)</a></li>
+                            <li><a href="https://research.aimultiple.com/ai-agents-customer-service/" target="_blank" class="example-link">Zendesk AI Customer Service Agents</a></li>
+                            <li><a href="https://www.flowforma.com/blog/ai-automation-examples" target="_blank" class="example-link">FlowForma Workflow Automation Systems</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="comparison-card">
+                    <h3>AI Assistants</h3>
+                    <p class="definition">AI assistants are reactive systems designed to help users perform tasks through natural language interaction, requiring human prompts and guidance.</p>
+                    <h4>Key Features:</h4>
+                    <ul class="features-list">
+                        <li>Responds to user commands and queries</li>
+                        <li>Natural language processing capabilities</li>
+                        <li>Task assistance and information retrieval</li>
+                        <li>Limited autonomous behavior</li>
+                        <li>User-guided interactions</li>
+                    </ul>
+                    <div class="examples">
+                        <h4>Examples</h4>
+                        <ul class="examples-list">
+                            <li><a href="https://builtin.com/artificial-intelligence/ai-assistant" target="_blank" class="example-link">Apple Siri</a></li>
+                            <li><a href="https://convin.ai/blog/which-ai-technology-is-used-behind-the-personal-voice-assistant" target="_blank" class="example-link">Amazon Alexa</a></li>
+                            <li><a href="https://blog.cfte.education/conversational-ai-examples-how-siri-alexa-google-assistant-have-human-like-conversations/" target="_blank" class="example-link">Google Assistant</a></li>
+                            <li><a href="https://www.arbaaa.com/ai-tools-101-step-by-step-chatgpt-tutorial-to-build-your-first-ai-assistant-2/" target="_blank" class="example-link">ChatGPT &amp; Custom GPTs</a></li>
+                            <li><a href="https://www.dipolediamond.com/digital-assistants-benefits-types-case-studies/" target="_blank" class="example-link">Microsoft Cortana &amp; Copilot</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Top 5 IBM AI News -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Top 5 IBM AI News from the Past Month</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <h3>IBM Partners with S&amp;P Global for Agentic AI Supply Chain Solutions</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">IBM announced a strategic partnership with S&P Global to integrate Watson Orchestrate agentic AI into supply chain management solutions. This collaboration aims to address complex global supply chain challenges through autonomous AI agents that can make real-time decisions, predict disruptions, and optimize logistics. The partnership represents IBM's push into agentic AI - systems that can act independently to achieve business objectives. S&P Global will leverage IBM's AI capabilities to enhance their risk assessment and supply chain analytics offerings, potentially transforming how enterprises manage global supply networks in an increasingly volatile economic environment.</p>
+                    <a href="https://finance.yahoo.com/news/ibm-racking-agentic-ai-deals-174049602.html" target="_blank" class="btn btn--primary">Read Full Article</a>
+                </article>
+                <article class="news-card">
+                    <h3>IBM Unveils New Software and Infrastructure Capabilities at TechXchange 2025</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">At TechXchange 2025, IBM introduced next-generation agentic AI features and intelligent infrastructure capabilities designed to help enterprises move beyond AI experimentation and unlock productivity gains. The announcement includes enhanced Watson capabilities, new hybrid cloud AI services, and infrastructure optimizations for large language model deployment. IBM emphasized that these tools are specifically designed for enterprise environments with strict security, compliance, and governance requirements. The company demonstrated how organizations can deploy AI agents that work autonomously within predefined business rules, representing a significant step toward practical AI implementation in enterprise settings. This launch positions IBM as a leader in enterprise-ready AI solutions.</p>
+                    <a href="https://newsroom.ibm.com/2025-10-07-ibm-unveils-new-software-product-and-intelligent-infrastructure-capabilities-to-help-enterprises-operationalize-ai" target="_blank" class="btn btn--primary">Read Full Article</a>
+                </article>
+                <article class="news-card">
+                    <h3>IBM and Anthropic Strategic Partnership Announced</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">IBM partnered with Anthropic to integrate Claude AI into IBM's comprehensive software portfolio, focusing on enterprise-ready AI development with advanced security and governance features. This strategic alliance combines Anthropic's conversational AI capabilities with IBM's enterprise infrastructure and security expertise. The partnership will enable businesses to deploy Claude AI within IBM's secure, compliant environment, addressing key concerns about data privacy and regulatory compliance. IBM plans to offer Claude as part of its consulting services, helping organizations implement conversational AI solutions that meet enterprise-grade security standards. This collaboration represents a significant validation of Anthropic's technology and IBM's commitment to offering best-in-class AI solutions rather than relying solely on proprietary models.</p>
+                    <a href="https://newsroom.ibm.com/2025-10-07-2025-ibm-and-anthropic-partner-to-advance-enterprise-software-development-with-proven-security-and-governance" target="_blank" class="btn btn--primary">Read Full Article</a>
+                </article>
+                <article class="news-card">
+                    <h3>IBM Research Shows Small AI Models Outperforming Larger Ones</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">IBM's latest research indicates that smaller language models are increasingly outperforming larger ones, with massive models being shrunk by nearly 10 times every 6-9 months without losing capabilities. This breakthrough challenges the prevailing wisdom that bigger AI models are always better, suggesting that efficiency and optimization matter more than raw parameter count. IBM's research team demonstrated that through advanced training techniques, distillation methods, and architectural improvements, smaller models can achieve comparable or superior performance on many tasks. This finding has significant implications for deployment costs, energy consumption, and accessibility of AI technology. Companies can now implement powerful AI capabilities without requiring massive computational resources, potentially democratizing AI access for smaller organizations and reducing the environmental impact of AI deployment.</p>
+                    <a href="https://www.tipranks.com/news/small-ai-models-are-outperforming-larger-ones-according-to-ibm" target="_blank" class="btn btn--primary">Read Full Article</a>
+                </article>
+                <article class="news-card">
+                    <h3>IBM Ships Homegrown Spyre Accelerators for AI Infrastructure</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">IBM began shipping its proprietary Spyre accelerators, marking a significant milestone in the company's AI infrastructure strategy. These custom-built processors are specifically designed to handle the computational demands of modern AI workloads, including large language model training and inference. The Spyre accelerators represent IBM's effort to reduce dependence on NVIDIA's GPUs while providing customers with optimized hardware for AI applications. Initial benchmarks suggest competitive performance with existing solutions while offering better integration with IBM's software stack. The launch includes expanded AI infrastructure capabilities and consulting services to help enterprises optimize their AI deployment strategies. This hardware initiative positions IBM as a more complete AI solution provider, capable of delivering both the software and specialized hardware needed for enterprise AI implementations.</p>
+                    <a href="https://www.nextplatform.com/2025/10/10/ibm-ships-homegrown-spyre-accelerators-embraces-anthropic-for-ai-push/" target="_blank" class="btn btn--primary">Read Full Article</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Wows Section -->
+    <section class="section wows-section">
+        <div class="container">
+            <h2 class="section-title">AI Breakthroughs That Amazed Us This Month</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <h3>OpenAI Releases GPT-5 with Revolutionary Multimodal Capabilities</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">OpenAI's GPT-5 launched with native support for text, images, audio, and video processing, achieving an unprecedented 94.6% on AIME 2025 benchmarks and setting new standards for multimodal AI. This represents a quantum leap from previous models, with GPT-5 demonstrating human-level performance on complex mathematical reasoning tasks and the ability to seamlessly process and generate content across multiple modalities simultaneously. The model can now analyze video content, generate synchronized audio-visual presentations, and handle complex document analysis involving charts, images, and text. Early testing shows GPT-5 excelling in scientific research applications, creative content generation, and educational tutoring scenarios. The breakthrough has significant implications for industries ranging from entertainment and education to scientific research and content creation, potentially revolutionizing how humans interact with AI systems.</p>
+                    <a href="https://www.aiapps.com/blog/ai-news-breakthroughs-launches-trends/" target="_blank" class="btn btn--primary">Learn More</a>
+                </article>
+                <article class="news-card">
+                    <h3>Google DeepMind and Yale Achieve Cancer Therapy Breakthrough</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">Google's AI model generated a novel hypothesis about cancer cellular behavior that was experimentally validated by Yale scientists, marking the first time AI has independently contributed to a major medical breakthrough. The AI system analyzed vast amounts of genomic and proteomic data to identify previously unknown cellular pathways involved in tumor resistance mechanisms. Yale researchers then conducted laboratory experiments that confirmed the AI's predictions, leading to the identification of potential new drug targets. This collaboration demonstrates AI's capability to accelerate scientific discovery by identifying patterns and connections that human researchers might miss. The breakthrough could lead to more effective cancer treatments and represents a new paradigm for AI-assisted medical research. The success has prompted other major research institutions to explore similar AI-human collaborative approaches for complex biological problems.</p>
+                    <a href="https://etedge-insights.com/technology/artificial-intelligence/sundar-pichai-announces-google-deepmind-yale-breakthrough-in-cancer-therapy-using-ai/" target="_blank" class="btn btn--primary">Learn More</a>
+                </article>
+                <article class="news-card">
+                    <h3>Harvard Achieves 3,000-Qubit Quantum Computing Breakthrough</h3>
+                    <p class="date">September 2025</p>
+                    <p class="summary">Harvard scientists unveiled a quantum system with over 3,000 quantum bits operating continuously for over two hours, representing a 10-fold increase in scale and the first quantum machine capable of uninterrupted operation. This breakthrough overcomes the major challenge of quantum decoherence, where quantum states typically collapse within microseconds. The system uses novel error correction techniques and environmental isolation methods to maintain quantum coherence for extended periods. The achievement brings practical quantum computing significantly closer to reality, with potential applications in drug discovery, financial modeling, and cryptography. The sustained operation capability means complex quantum algorithms can now run to completion, opening possibilities for solving previously intractable computational problems. This development positions Harvard as a leader in the quantum computing race and suggests that practical quantum advantages may be achievable within the next few years.</p>
+                    <a href="https://tsttechnology.io/blog/tech-ai-updates-september-2025" target="_blank" class="btn btn--primary">Learn More</a>
+                </article>
+                <article class="news-card">
+                    <h3>Microsoft Unveils MAI-Voice-1 and MAI-1 Preview Models</h3>
+                    <p class="date">August 2025</p>
+                    <p class="summary">Microsoft introduced its first proprietary AI models: MAI-Voice-1 capable of generating high-quality audio in under a second, and MAI-1 Preview, now available for public testing. MAI-Voice-1 represents a significant advancement in real-time voice synthesis, enabling natural-sounding speech generation with minimal latency, making it ideal for live applications like virtual assistants and real-time translation. The MAI-1 Preview model demonstrates Microsoft's ambition to compete directly with OpenAI and Google in the large language model space, offering competitive performance on reasoning and knowledge tasks. Early testing shows impressive capabilities in code generation, mathematical problem-solving, and creative writing. The launch signals Microsoft's strategy to reduce dependence on OpenAI while building proprietary AI capabilities that can be deeply integrated into Microsoft's product ecosystem, from Office applications to Azure cloud services.</p>
+                    <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank" class="btn btn--primary">Learn More</a>
+                </article>
+                <article class="news-card">
+                    <h3>ByteDance Launches Seedream 4.0 AI Image Generator</h3>
+                    <p class="date">September 2025</p>
+                    <p class="summary">ByteDance unveiled Seedream 4.0, claiming superior performance over Google's Gemini 2.5 Flash Image with 10x faster inference and comprehensive image generation capabilities. The model demonstrates remarkable improvements in photorealism, artistic style transfer, and prompt adherence, generating high-resolution images in seconds rather than minutes. Seedream 4.0 introduces novel techniques for maintaining consistency across image series and offers unprecedented control over artistic styles, lighting, and composition. The system can generate images from text descriptions, modify existing images based on natural language instructions, and create coherent visual narratives across multiple images. This launch intensifies competition in the AI image generation market and demonstrates how rapidly this technology is evolving. The speed improvements make real-time creative applications feasible, potentially transforming industries from advertising and entertainment to education and e-commerce.</p>
+                    <a href="https://tsttechnology.io/blog/tech-ai-updates-september-2025" target="_blank" class="btn btn--primary">Learn More</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Tax News Section -->
+    <section class="section tax-section">
+        <div class="container">
+            <h2 class="section-title">AI in Tax: Latest Developments</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <h3>64% of Tax Professionals Now Use AI in Their Work</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">A comprehensive industry report reveals that 64% of tax professionals are now using generative AI in their work, representing a dramatic increase from 40% in February 2025. This rapid adoption is driven by AI's ability to automate routine tasks like data entry, tax code research, and document review, allowing professionals to focus on higher-value advisory services. However, the report also highlights significant integration challenges, with many firms struggling to implement AI tools effectively while maintaining accuracy and compliance standards. The survey found that early adopters are seeing 30-40% time savings on routine tasks, but integration costs and training requirements remain significant barriers. The trend suggests a fundamental transformation of the tax profession, with AI becoming essential for competitive advantage. Tax firms are increasingly investing in AI training and updating their service models to incorporate these new capabilities.</p>
+                    <a href="https://finance.yahoo.com/news/two-thirds-tax-professionals-now-040100747.html" target="_blank" class="btn btn--primary">Read Details</a>
+                </article>
+                <article class="news-card">
+                    <h3>UAE Federal Tax Authority Showcases AI Initiatives at GITEX 2025</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">The UAE's Federal Tax Authority presented five groundbreaking AI-driven tax initiatives at GITEX Global 2025, including advanced data analysis systems, the FTAgpt chatbot for taxpayer assistance, and automated clarification systems for tax inquiries. The showcase demonstrated how AI is revolutionizing tax administration, with systems capable of processing complex tax scenarios in real-time and providing instant guidance to taxpayers. The FTAgpt chatbot has already handled over 100,000 taxpayer queries with 95% accuracy, significantly reducing wait times and improving taxpayer satisfaction. The automated clarification system can analyze tax legislation and provide authoritative interpretations within minutes rather than weeks. These initiatives position the UAE as a global leader in digital tax administration and demonstrate the potential for AI to make tax compliance more efficient and accessible. The success of these programs is being studied by tax authorities worldwide as a model for AI implementation.</p>
+                    <a href="https://tax.gov.ae/en/media.centre/news/the.federal.tax.authority.showcases.its.artificial.intelligence.and.digital.transformation.initiatives.during.its.participation.in.gitex.global.2025.aspx" target="_blank" class="btn btn--primary">Read Details</a>
+                </article>
+                <article class="news-card">
+                    <h3>HMRC Ordered to Disclose AI Use in R&amp;D Tax Claims</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">A UK tribunal decision ordered HMRC to reveal whether it used artificial intelligence in assessing R&D tax relief claims, raising significant transparency concerns about algorithmic decision-making in tax administration. The case emerged from disputes over R&D claim rejections, with taxpayers arguing they have the right to know if AI systems influenced decisions affecting their claims. Legal experts suggest this ruling could set a precedent requiring tax authorities to disclose AI use in administrative decisions, potentially affecting how governments worldwide implement AI in tax systems. The decision highlights growing concerns about algorithmic bias and the need for human oversight in AI-assisted tax administration. HMRC's response could influence how tax authorities balance efficiency gains from AI with requirements for transparency and accountability. The case underscores the importance of developing clear frameworks for AI use in government decision-making.</p>
+                    <a href="https://forrestbrown.co.uk/news/hmrc-ai-use-in-r-and-d-claims/" target="_blank" class="btn btn--primary">Read Details</a>
+                </article>
+                <article class="news-card">
+                    <h3>OECD Warns of AI Risks in Tax Administration</h3>
+                    <p class="date">September 2025</p>
+                    <p class="summary">The OECD published a comprehensive report highlighting data protection, transparency, and accountability challenges as tax authorities increasingly adopt AI for compliance monitoring and service delivery. The report identifies key risks including algorithmic bias that could disproportionately affect certain taxpayer groups, lack of transparency in AI decision-making processes, and potential privacy violations from extensive data analysis. The OECD recommends establishing clear governance frameworks, ensuring human oversight of AI decisions, and implementing robust appeal processes for AI-influenced determinations. The report also warns about the risk of over-reliance on AI systems that may not account for unique circumstances or changing regulations. Tax authorities are urged to develop ethical AI guidelines and invest in training for staff working with AI systems. The OECD's guidance is expected to influence AI adoption policies across member countries and establish international standards for AI use in tax administration.</p>
+                    <a href="https://www.vatcalc.com/global/oecd-risks-challenges-of-tax-authorities-use-of-ai/" target="_blank" class="btn btn--primary">Read Details</a>
+                </article>
+                <article class="news-card">
+                    <h3>European Parliament Considers AI Taxation Framework</h3>
+                    <p class="date">September 2025</p>
+                    <p class="summary">EU lawmakers are exploring comprehensive taxation frameworks for artificial intelligence due to its significant impact on labor markets and potential reduction in traditional payroll tax revenues. The proposed framework would include taxes on AI processing power, data usage, and automated decision-making systems, with revenues potentially funding universal basic income or retraining programs for displaced workers. Policymakers argue that as AI systems replace human workers, governments need new revenue sources to maintain public services and social safety nets. The proposals include tiered taxation based on AI capability levels, with more sophisticated systems facing higher tax rates. Industry groups are lobbying against the measures, arguing they could stifle innovation and drive AI development outside Europe. The debate reflects broader questions about how societies should adapt to AI-driven economic transformation and ensure that AI benefits are distributed fairly across the population.</p>
+                    <a href="https://logos-pres.md/en/news/artificial-intelligence-in-the-eu-wants-to-be-taxed/" target="_blank" class="btn btn--primary">Read Details</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Productivity AI Section -->
+    <section class="section productivity-section">
+        <div class="container">
+            <h2 class="section-title">Top 5 Personal Productivity AI Tools Making Waves</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <h3>Motion AI Calendar App Gains Traction with $34/Month Pricing</h3>
+                    <p class="date">September 2025</p>
+                    <p class="summary">Motion's AI-powered scheduling platform is gaining significant market traction despite its premium $34/month pricing, with users reporting substantial time savings through automated task and calendar management. The platform uses machine learning to automatically organize tasks, schedule meetings, and optimize daily workflows based on individual productivity patterns and preferences. Users report saving 2-3 hours daily through Motion's intelligent prioritization and automatic rescheduling capabilities when conflicts arise. The system learns from user behavior to suggest optimal time blocks for different types of work and can automatically adjust schedules based on energy levels and peak productivity periods. Motion's success at premium pricing demonstrates strong demand for sophisticated AI productivity tools among professionals willing to pay for significant time savings. The platform's ability to integrate with existing tools and provide personalized optimization has made it popular among executives, consultants, and other high-value professionals.</p>
+                    <a href="https://willowvoice.com/blog/best-ai-productivity-tools" target="_blank" class="btn btn--primary">Try It Out</a>
+                </article>
+                <article class="news-card">
+                    <h3>Notion AI Enhances Workspace with Q&amp;A Capabilities</h3>
+                    <p class="date">September 2025</p>
+                    <p class="summary">Notion AI introduced powerful personalized Q&A features that can search through user data, provide automated reporting, and intelligent task sorting, transforming it into a comprehensive productivity hub. The new capabilities allow users to ask natural language questions about their projects, documents, and data, with the AI providing contextual answers drawn from their entire Notion workspace. The system can generate automated status reports, identify bottlenecks in project workflows, and suggest optimizations based on historical data patterns. Advanced features include automatic task categorization, deadline prioritization, and intelligent content suggestions based on similar projects. The Q&A functionality extends to team collaboration, allowing members to quickly find information across shared workspaces without manually searching through documents. These enhancements position Notion as a serious competitor to traditional business intelligence tools while maintaining its user-friendly interface and flexible structure.</p>
+                    <a href="https://www.aiapps.com/blog/top-10-ai-apps-to-boost-productivity-this-september-2025/" target="_blank" class="btn btn--primary">Learn More</a>
+                </article>
+                <article class="news-card">
+                    <h3>Reclaim.ai Automates Time Blocking for Deep Work</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">Reclaim uses sophisticated AI algorithms to automatically block time for tasks, habits, and breaks, with free tier options and $8/month Pro plans gaining widespread adoption among knowledge workers. The platform's AI analyzes historical productivity data, calendar patterns, and task completion rates to identify optimal time slots for different types of work. Advanced features include automatic protection of deep work sessions, intelligent meeting scheduling that considers attendee productivity patterns, and dynamic rescheduling when priorities change. The system can distinguish between different types of tasks and allocate appropriate time blocks based on complexity and user performance data. Reclaim's integration with popular calendar systems makes it seamless to implement, while its learning algorithms continuously improve scheduling recommendations. Users report significant improvements in focus time and reduced context switching, with the AI effectively serving as a personal productivity coach that adapts to individual work styles and preferences.</p>
+                    <a href="https://nativeteams.com/blog/best-ai-tools-for-productivity" target="_blank" class="btn btn--primary">Try It Out</a>
+                </article>
+                <article class="news-card">
+                    <h3>AI Productivity Tools Show 25-40% Faster Task Completion</h3>
+                    <p class="date">September 2025</p>
+                    <p class="summary">Comprehensive studies of leading AI productivity solutions show measurable time savings of 25-40% across various knowledge work tasks, with voice recognition and task management tools reaching reliability thresholds for mainstream business adoption. The research analyzed performance across writing, research, scheduling, and project management tasks, finding consistent productivity gains when AI tools are properly integrated into workflows. Voice-to-text applications have achieved near-human accuracy levels, enabling rapid content creation and meeting transcription with minimal editing required. Task management AI systems excel at prioritization, resource allocation, and deadline optimization, with some organizations reporting project completion time reductions of up to 35%. The study also identified that productivity gains are highest when multiple AI tools work together synergistically, creating integrated workflows that amplify individual tool benefits. These findings suggest AI productivity tools have matured beyond experimental status to become essential business tools.</p>
+                    <a href="https://willowvoice.com/blog/best-ai-productivity-tools" target="_blank" class="btn btn--primary">Learn More</a>
+                </article>
+                <article class="news-card">
+                    <h3>Trello Butler AI Enhances Project Management Automation</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">Trello's AI integration, known as Butler, now automates task assignments, due dates, and labels based on intelligent triggers and pattern recognition, with pricing starting at $5/user/month for standard automation features. The enhanced Butler can analyze project patterns to predict potential bottlenecks, automatically assign tasks to team members based on workload and expertise, and adjust timelines based on historical completion data. Advanced features include natural language rule creation, where users can describe desired automations in plain English, and predictive notifications that alert team members about potential delays before they occur. The system learns from team behavior to suggest workflow improvements and can automatically generate status reports and progress summaries. Butler's integration with Trello's visual project management interface makes complex automation accessible to non-technical users, democratizing advanced project management capabilities for small teams and organizations.</p>
+                    <a href="https://nativeteams.com/blog/best-ai-tools-for-productivity" target="_blank" class="btn btn--primary">Try It Out</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Shortfalls Section -->
+    <section class="section shortfalls-section">
+        <div class="container">
+            <h2 class="section-title">When AI Falls Short: Recent Challenges and Failures</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <h3>95% of Enterprise AI Pilots Fail According to MIT Report</h3>
+                    <p class="date">August 2025</p>
+                    <p class="summary">MIT's extensive research reveals that 95% of generative AI implementations at companies are falling short of expectations, with the core issue being enterprise integration challenges rather than inherent model quality problems. The study analyzed over 500 enterprise AI initiatives across various industries and found that most failures stem from inadequate change management, insufficient data preparation, and unrealistic expectations about AI capabilities. Companies often underestimate the complexity of integrating AI into existing workflows, leading to poor user adoption and limited business impact. The research identified common failure patterns including lack of executive buy-in, insufficient employee training, and inadequate technical infrastructure to support AI deployment. Successful implementations typically require 6-12 months of preparation, significant cultural change initiatives, and substantial investment in supporting systems. The findings suggest that while AI technology is mature, organizations need to fundamentally rethink their approach to AI adoption, focusing on people and processes rather than just technology.</p>
+                    <a href="https://fortune.com/2025/08/18/mit-report-95-percent-generative-ai-pilots-at-companies-failing-cfo/" target="_blank" class="btn btn--primary">Read Analysis</a>
+                </article>
+                <article class="news-card">
+                    <h3>AI Agents Achieve Only 24% Success Rate in Office Tasks</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">Carnegie Mellon University and Salesforce research demonstrates that current AI agents can complete no more than 24% of assigned office tasks, with Claude 3.5 Sonnet performing best at the 24% success rate threshold. The comprehensive study tested AI agents across common workplace scenarios including email management, document creation, data analysis, and meeting scheduling, revealing significant limitations in practical business applications. The research found that AI agents struggle particularly with multi-step tasks requiring context switching, ambiguous instructions, and tasks requiring judgment calls about business priorities. Most failures occurred when agents encountered unexpected situations or needed to adapt their approach based on intermediate results. The study highlights the gap between AI capabilities in controlled environments versus real-world business scenarios with competing priorities and incomplete information. These findings suggest that while AI agents show promise, current expectations about their practical utility may be significantly overestimated, requiring more realistic deployment strategies.</p>
+                    <a href="https://www.workerscompensation.com/daily-headlines/researchers-give-artificial-intelligence-failing-grade-in-use-by-employees/" target="_blank" class="btn btn--primary">Read Analysis</a>
+                </article>
+                <article class="news-card">
+                    <h3>AI Infrastructure Faces $800 Billion Annual Funding Gap</h3>
+                    <p class="date">September 2025</p>
+                    <p class="summary">Bain &amp; Company's analysis warns that the AI industry faces a critical funding gap, needing $2 trillion in annual revenue by 2030 to maintain current investment pace, with significant infrastructure bottlenecks threatening industry growth. The report identifies multiple constraints including semiconductor manufacturing capacity, data center construction timelines, and energy grid limitations that could limit AI development regardless of available funding. Current AI infrastructure investments are growing exponentially, but the study suggests that without breakthrough improvements in efficiency or dramatic increases in AI application revenue, the industry may face a major correction. The analysis points to increasing costs for training large models, limited availability of specialized hardware, and growing energy consumption as key challenges. The funding gap could force prioritization of AI applications with clear revenue models while potentially slowing research into longer-term AI capabilities. This infrastructure constraint may ultimately determine which AI applications succeed commercially and which remain research projects.</p>
+                    <a href="https://ukai.co/ai-infrastructure-boom-faces-funding-shortfall-and-supply-constraints/" target="_blank" class="btn btn--primary">Read Analysis</a>
+                </article>
+                <article class="news-card">
+                    <h3>ChatGPT-5 Jailbroken Within 24 Hours of Release</h3>
+                    <p class="date">2025</p>
+                    <p class="summary">Security researchers successfully bypassed ChatGPT-5's safety measures within hours of its public release, demonstrating persistent vulnerabilities to prompt attacks, context poisoning, and social engineering techniques. The jailbreaking techniques exploited weaknesses in the model's instruction following system, allowing researchers to circumvent content policies and safety guidelines designed to prevent harmful outputs. Methods included sophisticated prompt injection attacks, role-playing scenarios that confused the model's safety systems, and context manipulation techniques that gradually led the AI to produce restricted content. The rapid compromise highlights fundamental challenges in AI safety, particularly the difficulty of creating robust safeguards that can't be circumvented through creative prompting strategies. Security experts warn that as AI systems become more capable, the potential impact of such vulnerabilities increases significantly. The incident has prompted renewed discussion about AI safety measures and the need for more sophisticated approaches to preventing misuse of powerful AI systems.</p>
+                    <a href="https://tech.co/news/list-ai-failures-mistakes-errors" target="_blank" class="btn btn--primary">Read Analysis</a>
+                </article>
+                <article class="news-card">
+                    <h3>Deloitte's $440,000 AI Report Blunder Exposes Ethical Issues</h3>
+                    <p class="date">October 2025</p>
+                    <p class="summary">Deloitte faced significant public embarrassment and client relations challenges after AI-generated content in a high-profile report included fabricated sources, incorrect statistics, and entirely fictional references, highlighting critical risks of inadequate AI oversight in professional services. The incident occurred when consultants used AI tools to generate research content without proper verification, resulting in a report that cited non-existent studies and included plausible-sounding but entirely fabricated data. The error was discovered when clients attempted to verify the sources, leading to questions about Deloitte's quality control processes and the reliability of AI-assisted consulting work. The firm was forced to recall the report, refund client fees, and implement new AI governance procedures across all consulting practices. The incident demonstrates how AI hallucination problems can have serious professional and financial consequences, particularly in industries where accuracy and credibility are paramount. The case has become a cautionary tale about the importance of human oversight and verification when using AI tools in professional contexts.</p>
+                    <a href="https://www.news18.com/explainers/when-ai-goes-wrong-deloittes-440000-blunder-exposes-technologys-ethical-blind-spots-shil-ws-l-9639520.html" target="_blank" class="btn btn--primary">Read Analysis</a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 New AI News. All external links open in new tabs for your convenience. Information compiled on October 16, 2025.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling enhancement
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add smooth hover effects to cards
+            const cards = document.querySelectorAll('.news-card, .comparison-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-4px)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                });
+            });
+
+            // Add click tracking for analytics (placeholder)
+            const readMoreLinks = document.querySelectorAll('.read-more');
+            readMoreLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    // Placeholder for analytics tracking
+                    console.log('External link clicked:', this.href);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
